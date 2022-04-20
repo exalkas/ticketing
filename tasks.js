@@ -18,6 +18,10 @@
  * =============================
  * to execute a command inside a pod:
  * kubectl exec -it [podname] [cmd]
+ * 
+ * =============================
+ * give more information about a pod and an event log:
+ * kubectl describe pod podname
  */
 
 /**
