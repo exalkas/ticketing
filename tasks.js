@@ -15,6 +15,10 @@
  * to delete a pod:
  * kubectl delete pod podname
  * 
+ * to delete all configuration:
+ * kubectl delete -f infra/k8s (you need to be one folder above the infra folder)
+ * then from the same folder, run: kubectl apply -f infra/k8s
+ * 
  * =============================
  * to execute a command inside a pod:
  * kubectl exec -it [podname] [cmd]
@@ -86,4 +90,16 @@
  * to run the container:
  * docker run imageid (e.g. sha256:3111db5785d27e384daf12cac5b98fd1dcc9a1cbdc352427e1efe5a7887078c0 ----keep the part without the sha256:)
 
+ */
+
+/**
+ * DEPLOYMENT COMMANDS
+ * 
+ * To list all deployments: kubectl get deployments -- the number/number column indicates number of pods ready / number of pods creating
+ * 
+ * To print details of a deployment: kubectl describe deployment deploymentname
+ * 
+ * To create a deployment: kubectl apply -f deployment.yaml
+ * 
+ * To delete a deployment: kubectl delete deployment deploymentname
  */

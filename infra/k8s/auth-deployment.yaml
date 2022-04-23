@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-depl
+spec:
+#number of replicas of a pod we want to run
+  replicas: 1
+  # selector: find the pods with label app and value auth
+  # label could be any name and not necessarily app
+  selector:
+    matchLabels:
+      app: auth
+  template:
+  # the configuration that will be applied to the pod that will be created
+    metadata:
+      labels:
+        # label for the pod
+        app: auth
+    spec: 
+      containers:
+        - name: auth
+          image: exalkas/auth:0.0.2
+          imagePullPolicy: Never

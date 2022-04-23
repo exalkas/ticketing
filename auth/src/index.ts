@@ -12,7 +12,12 @@ app.get('/', (req, res) => {
     res.send('hello from /')
 })
 
-app.listen(5000, () => console.log('Auth server is up and listens at port', 5000))
+app.listen(5000, () => {
+
+    console.log('v2 running')
+    console.log('Auth server is up and listens at port', 5000)
+
+})
 
 /**
  * Steps to setup kubernettes
