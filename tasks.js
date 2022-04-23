@@ -103,3 +103,28 @@
  * 
  * To delete a deployment: kubectl delete deployment deploymentname
  */
+
+/**
+ * SERVICES (NETWORKING)
+ * 
+ * How to access our servers through all these layers?
+ * 
+ * We need a service.
+ * Service gives access to pods from the outside world and helps pods to communicate betwwen them
+ * 
+ * There are types of services:
+ * 
+ * Cluster IP: builds urls for each pod. Exposes each pod in the cluster
+ * Node Port: for dev purposes. gives access to pods from the outside world
+ * Load balancer: The same as Node port regarding the part that gives access to the pods from the outside world
+ * External Name: not used in current project. redirects an in-cluster request to a cname
+ */
+
+/** 
+ * SCAFFOLD
+ * 
+ * It's a command line tool used to automate kubernetes tasks
+ * 
+ * Updates really easy a running pod
+ * For more check scaffold.dev
+*/
