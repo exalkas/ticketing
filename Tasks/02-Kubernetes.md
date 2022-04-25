@@ -139,3 +139,21 @@ spec:
 - for more details type: `kubectl describe service nameofservice`
 
 ## To create Cluster IP service
+
+### To connect 2 services beween them:
+
+#### use their service name and the port that we can see at: `kubectl get services`
+
+### to restart a deployment: `kubectl rollout restart deployment deployment_name`
+
+# Issue: there are duplicated deployments and all have status errImageNeverPull
+
+# Load Balancer Service
+
+- Each cluster has only one Load Balancer service (from now on LB)
+- LB has some logic in order to route the incoming requests to the appropritate pod (basically to their ClusterIP service)
+- Kubernettes **HAS** an LB service
+- AN LB service, supplies traffic to a **SINGLE POD**
+- Ingres/Ingress Controller is a pod with a set of routing rules **TO OTHER SERVICES**
+- An LB service has a *config file*
+- INGRESS Controller sits AFTER the LB and BEFORE the pods

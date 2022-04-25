@@ -6,4 +6,4 @@
     1. add `event-bus-depl.yaml` to `infra/k8s`
     2. `kubectl apply -f event-bus.yaml`
 4. Create a Cluster IP Service for each pod
-5. Wire all up
+5. 

@@ -1,14 +1,18 @@
 import express from 'express'
 import {json} from 'body-parser';
 import {} from 'dotenv/config';
+import axios from 'axios';
 
 const app = express();
 
 app.use(json())
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     console.log('Welcome')
 
+    const response = await axios.get('http://event-bus-srv:5005')
+
+    console.log('this is the response form auth server:', response)
     res.send('hello from /')
 })
 
