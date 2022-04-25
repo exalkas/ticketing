@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth-depl
+  name: event-bus-depl
 spec:
 #number of replicas of a pod we want to run
   replicas: 1
@@ -9,31 +9,34 @@ spec:
   # label could be any name and not necessarily app
   selector:
     matchLabels:
-      app: auth
+      app: event-bus
   template:
   # the configuration that will be applied to the pod that will be created
     metadata:
       labels:
         # label for the pod
-        app: auth
+        app: event-bus
     spec: 
       containers:
         # the name is used for login purposes
-        - name: auth
-          image: exalkas/auth
+        - name: event-bus
+          image: exalkas/event-bus
           imagePullPolicy: Never
 #define services
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: auth-srv
+  name: event-bus-srv
 spec:
-  # select all pods with name auth
-  app: auth
+  selector:
+    # select all pods with name auth
+    app: event-bus
+  # the default type for a service is 'ClusterIP' so we could omit it
+  type: ClusterIP
   ports: 
-    - name: auth
-    protocol: TCP:
-    # depends on which port our server listens
-    port: 3000
-    targetPort: 3000
+    - name: event-bus
+      protocol: TCP
+      # depends on which port our server listens
+      port: 5005
+      targetPort: 5005

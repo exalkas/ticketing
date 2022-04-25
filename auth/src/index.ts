@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 app.listen(5000, () => {
 
     console.log('v2 running')
-    console.log('Auth server is up and listens at port', 5000)
+    console.log('Auth server is up and listens at port!!!', 5000)
 
 })
 
