@@ -157,3 +157,9 @@ spec:
 - Ingres/Ingress Controller is a pod with a set of routing rules **TO OTHER SERVICES**
 - An LB service has a *config file*
 - INGRESS Controller sits AFTER the LB and BEFORE the pods
+
+## Install Ingress-nginx AND NOT kubernetes-ingress:
+
+- `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml`
+- create a configuration file for ingress controller
+  - create file `ingress-srv.yaml` inside `infra/k8s`

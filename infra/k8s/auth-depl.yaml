@@ -36,5 +36,5 @@ spec:
     - name: auth
       protocol: TCP
       # depends on which port our server listens
-      port: 3000
-      targetPort: 3000
+      port: 5000
+      targetPort: 5000

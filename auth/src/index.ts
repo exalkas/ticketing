@@ -1,20 +1,19 @@
 import express from 'express'
-import {json} from 'body-parser';
+import 'express-async-errors';
 import {} from 'dotenv/config';
-import axios from 'axios';
+
+import register from './routes/register'
+import { errorHandler } from './middlewares/errorHandler';
+import { NotFoundError } from './errors/notFound';
 
 const app = express();
 
-app.use(json())
+app.use(express.json())
 
-app.get('/', async (req, res) => {
-    console.log('Welcome')
+app.use(register)
 
-    const response = await axios.get('http://event-bus-srv:5005')
-
-    console.log('this is the response form auth server:', response)
-    res.send('hello from /')
-})
+app.all('*', async (req, res, next) => {throw new NotFoundError()}) // handle all not found routes
+app.use(errorHandler)
 
 app.listen(5000, () => {
 
@@ -22,10 +21,3 @@ app.listen(5000, () => {
     console.log('Auth server is up and listens at port!!!', 5000)
 
 })
-
-/**
- * Steps to setup kubernettes
- * 1. setup docker by adding the file Dockerfile
- * 2. Add a .dockerifnore with a "node_modules" 
- * create an image file
- */
