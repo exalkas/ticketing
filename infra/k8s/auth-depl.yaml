@@ -22,6 +22,14 @@ spec:
         - name: auth
           image: exalkas/auth
           imagePullPolicy: Never
+          # setup environment variables for this deployment
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  # name of the secret here
+                  name: jwt-secret
+                  key: JWT_KEY
 #define services
 ---
 apiVersion: v1

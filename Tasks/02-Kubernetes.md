@@ -163,3 +163,14 @@ spec:
 - `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml`
 - create a configuration file for ingress controller
   - create file `ingress-srv.yaml` inside `infra/k8s`
+
+
+## Create a Secret Pod in Kubernetes:
+
+- We will create a secret object with a command and not with a config file
+- secrets have different types
+- to create a JWT secret:
+`kubectl create secret generic jwt-secret --from-literal=JWT_KEY=secret` 
+- `JWT` is the key name and `secret` is the value
+
+- to get the secrets in a cluster: `kubectl get secrets`
