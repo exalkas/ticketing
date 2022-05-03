@@ -1,5 +1,12 @@
-import {Request, Response} from 'express'
+import express, {Request, Response} from 'express'
 
-exports.logout = (req: Request, res: Response) => {
+const router = express.Router();
+
+router.post('/users/logout', (req: Request, res: Response) => {
+    
+    req.session = null;
+
     res.send('Hello from logout route');
-};
+});
+
+export default router;

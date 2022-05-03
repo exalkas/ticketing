@@ -20,13 +20,22 @@ router.post('/users/login', [
 
     const {email, pass} = req.body;
     
-    const userEmail = User.findOne({email})
+    const user = await User.findOne({email})
 
-    if(!userEmail) throw new BadRequestError("Invalid credentials")
+    if(!user || // if user email is not found or pass not match
+      !(await Password.comparePasswords(user.pass, pass))
+      ) throw new BadRequestError("Invalid credentials");
 
-    if (!(await Password.comparePasswords(userEmail.pass, pass))) throw new BadRequestError("Invalid credentials")
-    
-    res.send('Hello from login route');
+    // generate JWT
+    const userJwt = jwt.sign({id: user._id}, process.env.JWT_KEY!);
+
+    // Store it on session object
+    // so we can retrieve it from the request
+    req.session = { // set it like this so no issues with typescript - don't use req.session.jwt
+        jwt: userJwt
+    };
+
+    res.status(200).send(user);
 });
 
 export default router

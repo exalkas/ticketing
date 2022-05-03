@@ -51,7 +51,7 @@ router.post('/users/register', [
         jwt: userJwt
     };
 
-    res.send(user);
+    res.status(201).send(user);
 }) 
 
 export default router
