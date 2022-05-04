@@ -170,7 +170,7 @@ spec:
 - We will create a secret object with a command and not with a config file
 - secrets have different types
 - to create a JWT secret:
-`kubectl create secret generic jwt-secret --from-literal=JWT_KEY=secret` 
+`kubectl create secret generic jwt-secret --from-literal=JWT_KEY=secret` "asdf1234" in this case
 - `JWT` is the key name and `secret` is the value
 
 - to get the secrets in a cluster: `kubectl get secrets`

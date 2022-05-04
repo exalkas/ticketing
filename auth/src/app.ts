@@ -21,7 +21,7 @@ app.set('trust proxy', true);
 app.use(express.json())
 app.use(cookieSession({
     signed: false, // don't need to sign the cookie
-    secure: true // only send cookie over https
+    secure: process.env.NODE_ENV === 'test' ? false : true // only send cookie over https
 })
 );
 

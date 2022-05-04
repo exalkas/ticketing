@@ -10,12 +10,12 @@ export class Password {
 
         const salt = randomBytes(8).toString('hex');
 
-        console.log('Salt is ', salt)
+        // console.log('Salt is ', salt)
 
         // scrypt returns a buffer
         const buffered = (await asyncedScrypt(password, salt, 64)) as Buffer;
 
-        console.log('Buffered is ', buffered)
+        // console.log('Buffered is ', buffered)
 
         // return the hashed password along with the salt
         return `${buffered.toString('hex')}.${salt}`;
