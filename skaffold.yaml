@@ -30,6 +30,18 @@ build:
           # sync the file inside of our current container
           # the "." means that take the file from current dir and copy into the corresponding folder in the image
             dest: .
+    - image: exalkas/ticketingclient
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+        # src is usually for react unless there is such a structure in node
+          # - src: 'src/**/*.js'
+          - src: '**/*.js'
+          # sync the file inside of our current container
+          # the "." means that take the file from current dir and copy into the corresponding folder in the image
+            dest: .
     # for more microservices just copy the artifacts and replace the proper values
         # which image to rebuild when needed
     # - image: exalkas/client

@@ -19,3 +19,5 @@ Hashing and comparing passwords were moved into their own class
 Testing
 Jest
 Supertest
+
+Using Next.js inside a Kubernetes  cluster
