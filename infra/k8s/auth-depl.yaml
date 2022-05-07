@@ -35,6 +35,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+ # this makes the pod accessible at http://auth-srv
   name: auth-srv
 spec:
   selector:

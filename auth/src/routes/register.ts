@@ -27,6 +27,7 @@ router.post('/users/register', [
     //     // return  res.status(400).send(errors.array()); // send the errors in array format
     // }
 
+    console.log('/users/register: Hello from register route')
     Password.hashPassword('string')
     const {email, pass} = req.body;
 

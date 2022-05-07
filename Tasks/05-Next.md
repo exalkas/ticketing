@@ -167,3 +167,15 @@ module.exports = {
 @tailwind components;
 @tailwind utilities;
 ```
+
+## To Redirect in Next
+
+- `import Router from 'next/router'`
+- add this: `Router.push('/path')`
+
+## SSR
+
+- call static method: `getInitialProps()` and store the results into some object
+- `console.log` in this static methods are visible in the console.log only. thiis is in server side
+- in this static method we could fetch data from server
+- render object in the `return` part of the component

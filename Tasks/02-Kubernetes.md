@@ -174,3 +174,12 @@ spec:
 - `JWT` is the key name and `secret` is the value
 
 - to get the secrets in a cluster: `kubectl get secrets`
+
+## Namespaces
+### When creating an object (e.g. pod, service) then it's being created in a namespace
+
+- to get namespaces: `kubectl get namespace`
+- to communicate with a different namespace that the object is living in:
+  - `http://nameofservice.namespace.svc.cluster.local`
+- to list services in a specific namespace:
+  `kubectl get services -n namespace`
